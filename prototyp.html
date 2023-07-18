@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://rawgit.com/ngokevin/aframe-event-set-component/master/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
+    <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
+    <title>Prototype</title>
+  </head>
+  <body>
+    <a-scene>
+      <!-- Mögliche Assets -->
+      <a-assets> </a-assets>
+      <a-entity>
+        <a-camera></a-camera>
+        <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left"></a-entity>
+        <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right"></a-entity>
+      </a-entity>
+      <a-box hoverable grabbable stretchable draggable droppable color="blue" position="0 0 -1"></a-box>
+
+      <a-entity>progressive-controls</a-entity>
+
+      <!-- Sky -->
+
+      <a-sky color="white"></a-sky>
+
+      <!-- Ground -->
+
+      <a-plane
+        position="0 0 -4"
+        rotation="-90 0 0"
+        width="25"
+        height="25"
+        color="#B4BCB0"
+      ></a-plane>
+
+      <!-- Shapes -->
+      <a-box id="blue box" position="0 0.5 -3" rotation="0 0 0" color="#4CC3D9" width="1" height="1" interactive="true"></a-box>
+
+      <!-- Text -->
+      <a-text value="Box Info" position="-0.5 1.5 -1.5" color="#000" 2.5 2.5"></a-text>
+
+      <!-- Camera -->
+      <a-entity position="0 0 1">
+         <a-camera user-height="1.6">
+      </a-camera>
+      </a-entity>
+
+
+
+
+    </a-scene>
+  </body>
+</html>
