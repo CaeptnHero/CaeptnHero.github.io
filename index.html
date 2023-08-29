@@ -11,7 +11,8 @@
     <!-- Bib for fly? -->
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.1/dist/aframe-extras.min.js"></script>
 
-
+    <!-- Bib for Physiks -->
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v$npm_package_version/dist/aframe-physics-system.min.js"></script>
    
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
 
@@ -29,8 +30,8 @@
 
       <!-- Camera -->
       <a-entity id="cameraRig">
-        <a-entity id="head" position="0 1.6 0">
-          <a-camera user-height="1.6"></a-camera>
+        <a-entity id="head" position="0 1.4 0">
+          <a-camera user-height="1.4"></a-camera>
         </a-entity>
 
         <!-- Movement -->
@@ -72,10 +73,14 @@
       <!-- Shapes -->
       <!-- grabbable Box -->
       <a-box
+        grabbable
+        stretchable
+        draggable
+        droppable
         class="grabbable"
         color="yellow"
         material="color:yellow; side:#000"
-        position="0 1.5 -1.8"
+        position="0 1.4 -1.8"
       ></a-box>
       <!--<a-box id="blue box" position="0 0.5 -3" rotation="0 0 0" color="#4CC3D9" width="1" height="1" interactive="true"></a-box> -->
 
