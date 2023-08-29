@@ -8,9 +8,11 @@
     <!-- Bib for A-Frame -->
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+    <!-- Bib for fly? -->
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.1/dist/aframe-extras.min.js"></script>
 
-    <!-- Animation Bib -->
-    <script src="https://rawgit.com/ngokevin/aframe-event-set-component/master/dist/aframe-event-set-component.min.js"></script>
+
+   
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
 
     <!-- Grabbing -->
@@ -30,6 +32,10 @@
         <a-entity id="head" position="0 1.6 0">
           <a-camera user-height="1.6"></a-camera>
         </a-entity>
+
+        <!-- Movement -->
+        <a-entity id="rig"
+          movement-controls="fly: true; speed: 0.3">
 
         <!-- Left Oculus Quest 2 Controller -->
         <a-entity
