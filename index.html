@@ -30,8 +30,7 @@
     <a-scene>
       
       <!-- Camera -->
-      <a-entity id="cameraRig">
-        <a-entity position="0 0 1">
+      <a-entity id="player">
           <a-camera user-height="1.6">
          </a-camera>
        </a-entity>
@@ -39,9 +38,7 @@
         <!-- Movement -->
         <a-entity id="rig"
           movement-controls="fly: true; speed: 0.3">
-
-        
-      
+  
       <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left" blink-controls></a-entity>
       <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right" blink-controls></a-entity>
 
@@ -84,10 +81,6 @@
              interactive="true"
              scale="0.5 0.5 0.5">
         </a-box>
-        
-       
-
-      <!--<a-box id="blue box" position="0 0.5 -3" rotation="0 0 0" color="#4CC3D9" width="1" height="1" interactive="true"></a-box> -->
 
       <!-- Text -->
       <a-text
@@ -97,10 +90,6 @@
         width="2.5"
         height="2.5"
       ></a-text>
-    </a-scene>
-
-    
-
-    
+    </a-scene>  
   </body>
   </html>
