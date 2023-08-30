@@ -35,16 +35,16 @@
           <a-camera user-height="1.6">
          </a-camera>
        </a-entity>
-
+       <a-entity id="camera" camera wasd-controls look-controls></a-entity>
         <!-- Movement -->
         <a-entity id="rig"
           movement-controls="fly: true; speed: 0.3">
 
         
       </a-entity>
-
+      <a-entity id="left-hand" oculus-touch-controls="hand: left" blink-controls></a-entity>
       <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left" blink-controls></a-entity>
-        <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right" blink-controls></a-entity>
+      <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right" blink-controls></a-entity>
 
       <a-entity
         progressive-controls="maxLevel: 10; movementControlScheme: auto"
