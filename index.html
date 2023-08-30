@@ -27,29 +27,16 @@
       
       <!-- Camera -->
       <a-entity id="cameraRig">
-        <a-entity id="head" position="0 1 0">
-          <a-camera user-height="1"></a-camera>
-        </a-entity>
+        <a-entity position="0 0 1">
+          <a-camera user-height="1.6">
+         </a-camera>
+       </a-entity>
 
         <!-- Movement -->
         <a-entity id="rig"
           movement-controls="fly: true; speed: 0.3">
 
-        <!-- Left Oculus Quest 2 Controller -->
-        <a-entity
-          id="leftHand"
-          hand-controls="hand: left"
-          teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger"
-          raycaster="objects: .grabbable"
-        ></a-entity>
-
-        <!-- Right Oculus Quest 2 Controller -->
-        <a-entity
-          id="rightHand"
-          hand-controls="hand: right"
-          teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger"
-          raycaster="objects: .grabbable"
-        ></a-entity>
+        
       </a-entity>
 
       <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left" blink-controls></a-entity>
@@ -81,10 +68,17 @@
         class="grabbable"
         color="green"
         material="color:green; side:#000"
-        position="0 1.4 -1.8"
+        position="0 1.4 -1"
       ></a-box>
 
-      <a-box hoverable grabbable stretchable draggable droppable color="blue" position="2 1 -1.8"></a-box>
+      <a-box hoverable
+             grabbable
+             stretchable
+             draggable
+             droppable color="blue"
+             position="1.5 1 -1"
+             interactive="true">
+       </a-box>
 
       <!--<a-box id="blue box" position="0 0.5 -3" rotation="0 0 0" color="#4CC3D9" width="1" height="1" interactive="true"></a-box> -->
 
