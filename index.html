@@ -20,18 +20,15 @@
     <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
 
     <!-- Teleport Asset -->
-    <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
     <title>Prototype</title>
   </head>
   <body>
     <a-scene>
-      <!-- Mögliche Assets -->
-      <a-assets> </a-assets>
-
+      
       <!-- Camera -->
       <a-entity id="cameraRig">
-        <a-entity id="head" position="0 1.4 0">
-          <a-camera user-height="1.4"></a-camera>
+        <a-entity id="head" position="0 1 0">
+          <a-camera user-height="1"></a-camera>
         </a-entity>
 
         <!-- Movement -->
@@ -45,6 +42,7 @@
           teleport-controls="cameraRig: #cameraRig; teleportOrigin: #head; button: trigger"
           raycaster="objects: .grabbable"
         ></a-entity>
+
         <!-- Right Oculus Quest 2 Controller -->
         <a-entity
           id="rightHand"
@@ -82,6 +80,9 @@
         material="color:green; side:#000"
         position="0 1.4 -1.8"
       ></a-box>
+
+      <a-box hoverable grabbable stretchable draggable droppable color="blue" position="2 1 -1.8"></a-box>
+
       <!--<a-box id="blue box" position="0 0.5 -3" rotation="0 0 0" color="#4CC3D9" width="1" height="1" interactive="true"></a-box> -->
 
       <!-- Text -->
@@ -94,7 +95,7 @@
       ></a-text>
     </a-scene>
     <script>
-      AFRAME.registerComponent('grab-interaction', {
+      AFRAME.registerComponent('grabbable', {
         init: function() {
           this.el.addEventListener('mousedown', this.grab.bind(this));
           this.el.addEventListener('mouseup', this.release.bind(this));
@@ -106,6 +107,7 @@
           if (intersectedElement === this.el) {
             this.hand = hand;
             this.grabbed = true;
+            this.originalPosition = this.el.getAttribute('position');
           }
         },
         release: function(event) {
@@ -113,6 +115,7 @@
             this.hand.removeAttribute('super-hands');
             this.hand = null;
             this.grabbed = false;
+            this.originalPosition = null;
           }
         },
         tick: function() {
@@ -126,7 +129,8 @@
         }
       });
   
-      document.querySelector('#grabMe').setAttribute('grab-interaction', '');
+      document.querySelector('#grabMe').setAttribute('grabbable', '');
     </script>
+    
   </body>
   </html>
