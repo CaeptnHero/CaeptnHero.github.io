@@ -19,7 +19,11 @@
     <!-- Grabbing -->
     <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
 
-    <!-- Teleport Asset -->
+    <!-- UI BIB -->
+    https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js
+
+    <!-- Teleport bib-->
+    <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
     <title>Prototype</title>
   </head>
   <body>
@@ -96,44 +100,8 @@
       ></a-text>
     </a-scene>
 
-    <script>
-      AFRAME.registerComponent('grabbable', {
-        init: function() {
-          this.el.addEventListener('mousedown', this.grab.bind(this));
-          this.el.addEventListener('mouseup', this.release.bind(this));
-        },
-        grab: function(event) {
-          const hand = event.detail.hand;
-          const intersectedElement = hand.getAttribute('raycaster').intersectedEls[0];
-          
-          if (intersectedElement === this.el) {
-            this.hand = hand;
-            this.grabbed = true;
-            this.originalPosition = this.el.getAttribute('position');
-          }
-        },
-        release: function(event) {
-          if (this.hand && this.grabbed) {
-            this.hand.removeAttribute('super-hands');
-            this.hand = null;
-            this.grabbed = false;
-            this.originalPosition = null;
-          }
-        },
-        tick: function() {
-          if (this.grabbed && this.hand) {
-            const handPosition = this.hand.getAttribute('position');
-            const floorPosition = document.querySelector('#floor').getAttribute('position');
-            if (handPosition.y > floorPosition.y) {
-              this.el.setAttribute('position', handPosition);
-            }
-          }
-        }
-      });
-  
-      // Hier wird die Komponente auf das 'grabMe'-Element angewendet.
-      document.querySelector('#grabMe').setAttribute('grabbable', '');
-    </script>
+    
+
     
   </body>
   </html>
