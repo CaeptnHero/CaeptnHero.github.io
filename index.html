@@ -27,7 +27,7 @@
     <title>Prototype</title>
   </head>
   <body>
-    <a-scene>
+    <a-scene shadow="type: basic">
       
       <!-- Player + Camera -->
       <a-entity id="player" position="0 -0.2 4">
@@ -40,6 +40,10 @@
         
         <a-entity teleport-controls="cameraRig: #cameraRig; teleportOrigin: #camera;"></a-entity>
 
+       <!-- Lights -->
+       <a-entity light="intensity: 0.0; castShadow: false;"</a-entity>
+        <a-entity light="type: ambient; intensity: 0.0"></a-entity>
+        <canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" width="418" height="927"></canvas>
 
         <a-entity class="teleportRay" visible=""</a-entity>
         <a-entity class="hitEntity" visible="">
@@ -47,6 +51,8 @@
         <a-entity position="" geometry="" material=""></a-entity>
         <a-entity position="" rotation="" material="" material="" visible=""></a-entity>
       </a-entity>
+
+     
 
       <!-- Sky -->
       <a-sky color="white"></a-sky>
