@@ -29,26 +29,24 @@
   <body>
     <a-scene>
       
-      <!-- Camera -->
-      <a-entity id="player">
-          <a-camera user-height="1.6"></a-camera>
-       </a-entity>
-
-       <a-entity id="camera" camera="near: 0.001; far: 1000;" position="0 1.7 0" look-controls="pointerLockEnabled: true" rotation="">
+      <!-- Player + Camera -->
+      <a-entity id="player" position="0 -0.2 4">
+        <a-entity id="camera" camera="near: 0.001; far: 1000;"user-height="1.6" position="0 1.7 0" look-controls="pointerLockEnabled: true" rotation="">
+        </a-entity>
+        <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left" blink-controls></a-entity>
+        <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right" blink-controls></a-entity>
       </a-entity>
+
         
-        <!-- Movement -->
-        <a-entity teleport-controls="cameraRig: #cameraRig; teleportOrigin: #camera;">
+        <a-entity teleport-controls="cameraRig: #cameraRig; teleportOrigin: #camera;"></a-entity>
 
-      <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: left" blink-controls></a-entity>
-      <a-entity sphere-collider="objects: a-box" super-hands hand-controls="hand: right" blink-controls></a-entity>
 
-      <a-entity class="teleportRay" visible=""</a-entity>
-      <a-entity class="hitEntity" visible="">
-      <a-entity geometry="" rotation="" material=""></a-entity>
-      <a-entity position="" geometry="" material=""></a-entity>
-      <a-entity position="" rotation="" material="" material="" visible=""></a-entity>
-      ></a-entity>
+        <a-entity class="teleportRay" visible=""</a-entity>
+        <a-entity class="hitEntity" visible="">
+        <a-entity geometry="" rotation="" material=""></a-entity>
+        <a-entity position="" geometry="" material=""></a-entity>
+        <a-entity position="" rotation="" material="" material="" visible=""></a-entity>
+      </a-entity>
 
       <!-- Sky -->
       <a-sky color="white"></a-sky>
