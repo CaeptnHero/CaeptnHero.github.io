@@ -20,7 +20,7 @@
     <script src="https://unpkg.com/super-hands@^3.0.3/dist/super-hands.min.js"></script>
 
     <!-- UI BIB -->
-    https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js
+    <script src="https://rawgit.com/rdub80/aframe-gui/master/dist/aframe-gui.min.js"></script>
 
     <!-- Teleport bib-->
     <script src="https://cdn.jsdelivr.net/npm/aframe-blink-controls/dist/aframe-blink-controls.min.js"></script>
@@ -91,12 +91,38 @@
 
       <!-- Text -->
       <a-text
-        value="Prototyp der ersten Box"
-        position="-1 2 -1.2"
+        value="Prototyp der ersten Boxen"
+        position="0 2 -1.2"
         color="#000"
         width="2.5"
         height="2.5"
       ></a-text>
+
+      <a-gui-button
+		width="1.5" 
+		height="1.5" 
+		base-depth="0.025" 
+		depth="0.1"
+		gap="0.1"
+    position="4 1.5 -1.2"
+
+		onclick="buttonActionFunction" key-code="32"
+		value="Sample Button"
+		font-family="assets/fonts/PermanentMarker-Regular.ttf"	
+		font-size="0.25"
+		margin="0 0 0.05 0"
+
+		font-color="black"
+		active-color="red"
+		hover-color="yellow"
+		border-color="white"
+		focus-color="black"
+		background-color="orange"
+
+		bevel="true"
+	>
+	</a-gui-button>
+
     </a-scene>  
   </body>
   </html>
