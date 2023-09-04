@@ -44,8 +44,8 @@
 
         <canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" width="418" height="927"></canvas>
 
-        <a-entity class="teleportRay" visible=""</a-entity>
-        <a-entity class="hitEntity" visible="">
+        <a-entity class="teleportRay" visible=""></a-entity>
+        <a-entity class="hitEntity" visible=""></a-entity>
         <a-entity geometry="" rotation="" material=""></a-entity>
         <a-entity position="" geometry="" material=""></a-entity>
         <a-entity position="" rotation="" material="" material="" visible=""></a-entity>
@@ -87,7 +87,17 @@
              position="1.5 1 -1"
              interactive="true"
              scale="0.5 0.5 0.5">
-        </a-box>
+      </a-box>
+
+      <a-cylinder color="crimson"
+                  height="2" 
+                  radius="0.5"
+                  position="-1.8 1 -1">
+      </a-cylinder>
+
+
+
+
 
       <!-- Text -->
       <a-text
@@ -99,30 +109,49 @@
       ></a-text>
 
       <a-gui-button
-		width="1.5" 
-		height="1.5" 
-		base-depth="0.025" 
-		depth="0.1"
-		gap="0.1"
-    position="4 1.5 -1.2"
-
-		onclick="buttonActionFunction" key-code="32"
-		value="Sample Button"
-		font-family="assets/fonts/PermanentMarker-Regular.ttf"	
-		font-size="0.25"
-		margin="0 0 0.05 0"
-
-		font-color="black"
-		active-color="red"
-		hover-color="yellow"
-		border-color="white"
-		focus-color="black"
-		background-color="orange"
-
-		bevel="true"
-	>
-	</a-gui-button>
-
-    </a-scene>  
-  </body>
-  </html>
+      width="2"
+      height="0.5"
+      base-depth="0.025"
+      depth="0.05"
+      gap="0.05"
+      position="4 1.5 -1.2"
+      key-code="32"
+      value="Volume: 0.125"
+      font-family="Arial, sans-serif"
+      font-size="0.2"
+      font-color="white"
+      active-color="red"
+      hover-color="lightblue"
+      border-color="transparent"
+      focus-color="transparent"
+      background-color="dodgerblue"
+      bevel="false"
+      id="volumeButton"
+    >
+    </a-gui-button>
+    
+        </a-scene> 
+      <script>
+      // Finde die grüne Box
+      var greenBox = document.querySelector('.grabbable');
+    
+      // Finde das Button-Element
+      var volumeButton = document.querySelector('#volumeButton');
+    
+      // Funktion zum Aktualisieren des Werts basierend auf dem Boxvolumen
+      function updateVolumeValue() {
+        // Berechne das Volumen der grünen Box
+        var volume = greenBox.getAttribute('scale').x * greenBox.getAttribute('scale').y * greenBox.getAttribute('scale').z;
+    
+        // Setze den Wert des Buttons auf das berechnete Volumen
+        volumeButton.setAttribute('value', 'Volume: ' + volume.toFixed(3));
+      }
+    
+      // Rufe die Funktion zum Aktualisieren des Werts auf
+      updateVolumeValue();
+    
+      // Füge einen Event-Listener hinzu, um den Wert bei Änderungen an der grünen Box zu aktualisieren
+      greenBox.addEventListener('scaleChanged', updateVolumeValue);
+    </script>
+      </body>
+      </html>
