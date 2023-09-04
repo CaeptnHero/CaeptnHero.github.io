@@ -131,27 +131,6 @@
     </a-gui-button>
     
         </a-scene> 
-      <script>
-      // Finde die grüne Box
-      var greenBox = document.querySelector('.grabbable');
-    
-      // Finde das Button-Element
-      var volumeButton = document.querySelector('#volumeButton');
-    
-      // Funktion zum Aktualisieren des Werts basierend auf dem Boxvolumen
-      function updateVolumeValue() {
-        // Berechne das Volumen der grünen Box
-        var volume = greenBox.getAttribute('scale').x * greenBox.getAttribute('scale').y * greenBox.getAttribute('scale').z;
-    
-        // Setze den Wert des Buttons auf das berechnete Volumen
-        volumeButton.setAttribute('value', 'Volume: ' + volume.toFixed(3));
-      }
-    
-      // Rufe die Funktion zum Aktualisieren des Werts auf
-      updateVolumeValue();
-    
-      // Füge einen Event-Listener hinzu, um den Wert bei Änderungen an der grünen Box zu aktualisieren
-      greenBox.addEventListener('scaleChanged', updateVolumeValue);
-    </script>
+      
       </body>
       </html>
