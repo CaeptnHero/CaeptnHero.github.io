@@ -60,14 +60,16 @@
       <a-plane
         position="0 0 -4"
         rotation="-90 0 0"
-        width="25"
-        height="25"
+        width="26"
+        height="26"
         color="#B4BCB0"
       ></a-plane>
 
       <!-- Shapes -->
       <!-- grabbable Box -->
       <a-box
+      id="Würfel"
+      hoverable
         grabbable
         stretchable
         draggable
@@ -75,61 +77,137 @@
         class="grabbable"
         color="green"
         material="color:green"
-        position="0 1.4 -1"
-        scale="0.5 0.5 0.5"
+        position="5 1.4 -13"
+        scale="2 2 2"
       ></a-box>
 
-      <a-box hoverable
-             grabbable
-             stretchable
-             draggable
-             droppable color="blue"
-             position="1.5 1 -1"
-             interactive="true"
-             scale="0.5 0.5 0.5">
-      </a-box>
+      <a-box
+      id="Quader"
+      hoverable
+        grabbable
+        stretchable
+        draggable
+        droppable
+        class="grabbable"
+        color="pink"
+        position="-8 1.4 -13"
+        scale="4 2 2"
+      ></a-box>
 
-      <a-cylinder color="crimson"
-                  height="2" 
-                  radius="0.5"
-                  position="-1.8 1 -1">
-      </a-cylinder>
+      <a-gui-button
+      id="QuaderText"
+  width="3"
+  height="2"
+  base-depth="0.025"
+  depth="0.05"
+  gap="0.05"
+  position="-2.8 1.4 -13"
+  value="Beschreibung der grünen Box Beschreibung der grünen Box Beschreibung der grünen Box"
+  font-family="Arial, sans-serif"
+  font-size="0.2"
+  font-color="white"
+  active-color="red"
+  hover-color="lightblue"
+  border-color="transparent"
+  focus-color="transparent"
+  background-color="dodgerblue">
+</a-gui-button>
 
+  <a-entity
+  id="Kreis"
+  geometry="primitive: circle; radius: 1.5; segmentsRadial: 100; segmentsTheta: 200"
+  material="color: blue; shader: flat"
+  position="10 1 8"
+  rotation="0 -80 0">
+  </a-entity>
+    
+    <a-sphere
+    id="Kugel"
+    color="yellow" 
+    radius="1" 
+    position="13 1.4 -10"
+    ></a-sphere>
 
+    <a-gui-button
+      id="KugelText"
+  width="3"
+  height="2"
+  base-depth="0.025"
+  depth="0.05"
+  gap="0.05"
+  position="13 1.4 -5"
+  rotation="0 -80 0"
+  value="Beschreibung der grünen Box Beschreibung der grünen Box Beschreibung der grünen Box"
+  font-family="Arial, sans-serif"
+  font-size="0.2"
+  font-color="white"
+  active-color="red"
+  hover-color="lightblue"
+  border-color="transparent"
+  focus-color="transparent"
+  background-color="dodgerblue">
+</a-gui-button>
+    
+    <a-cone
+    id="Pyramide"
+    color="purple"        
+    radius-bottom="1"  
+    height="1"        
+    segments-radial="4"
+    position="-13 1.4 -5">
+    </a-cone>
 
-
-
+    <a-gui-button
+    id="PyramideText"
+width="3"
+height="2"
+base-depth="0.025"
+depth="0.05"
+gap="0.05"
+position="-13 1.4 -10"
+rotation="0 -80 0"
+value="Beschreibung der grünen Box Beschreibung der grünen Box Beschreibung der grünen Box"
+font-family="Arial, sans-serif"
+font-size="0.2"
+font-color="white"
+active-color="red"
+hover-color="lightblue"
+border-color="transparent"
+focus-color="transparent"
+background-color="dodgerblue">
+</a-gui-button>
+    
+                                                                                 
       <!-- Text -->
       <a-text
-        value="Prototyp der ersten Boxen"
-        position="0 2 -1.2"
+        value="Hier ist der Startpunkt"
+        position="-0.5 2 0"
         color="#000"
         width="2.5"
         height="2.5"
       ></a-text>
 
       <a-gui-button
-      width="2"
-      height="0.5"
-      base-depth="0.025"
-      depth="0.05"
-      gap="0.05"
-      position="4 1.5 -1.2"
-      key-code="32"
-      value="Volume: 0.125"
-      font-family="Arial, sans-serif"
-      font-size="0.2"
-      font-color="white"
-      active-color="red"
-      hover-color="lightblue"
-      border-color="transparent"
-      focus-color="transparent"
-      background-color="dodgerblue"
-      bevel="false"
-      id="volumeButton"
-    >
-    </a-gui-button>
-    
+  width="3"
+  height="2"
+  base-depth="0.025"
+  depth="0.05"
+  gap="0.05"
+  position="9 1.4 -13"
+  key-code="32"
+  value="Beschreibung der grünen Box Beschreibung der grünen Box Beschreibung der grünen Box"
+  font-family="Arial, sans-serif"
+  font-size="0.2"
+  font-color="white"
+  active-color="red"
+  hover-color="lightblue"
+  border-color="transparent"
+  focus-color="transparent"
+  background-color="dodgerblue"
+  bevel="false"
+  id="volumeButton"
+>
+</a-gui-button>
         </a-scene> 
       
       </body>
