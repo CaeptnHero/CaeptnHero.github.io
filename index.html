@@ -47,8 +47,8 @@
       <a-entity id="player" position="0 -0.2 4">
         <a-entity id="camera" camera="near: 0.001; far: 1000;"user-height="1.6" position="0 1.7 0" look-controls="pointerLockEnabled: true" rotation="">
         </a-entity>
-    <a-entity sphere-collider="objects: a-box, a-cone, a-sphere" super-hands hand-controls="hand: left" blink-controls></a-entity>
-    <a-entity sphere-collider="objects: a-box, a-cone, a-sphere" super-hands hand-controls="hand: right" blink-controls></a-entity>
+    <a-entity sphere-collider="objects: a-box, a-cone, a-sphere, a-entity" super-hands hand-controls="hand: left" blink-controls></a-entity>
+    <a-entity sphere-collider="objects: a-box, a-cone, a-sphere, a-entity" super-hands hand-controls="hand: right" blink-controls></a-entity>
       </a-entity>
 
         <a-entity environment ="preset: forest"></a-entity>
@@ -69,7 +69,7 @@
   <a-assets>   
     <img id="würfel" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/w%C3%BCrfel.png?v=1693917835928">
     <img id="quader" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/quader.png?v=1693917834745">
-    <img id="pyramide" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/pyramide.png?v=1693917833798">
+    <img id="zylinder" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/zylinder.png?v=1694537938963">
     <img id="kreis" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/kreis.png?v=1693917824461">
     <img id="quadrat" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/quadrat.png?v=1693917822470">
     <img id="rechteck" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/rechteck.png?v=1693917823067">
@@ -80,13 +80,14 @@
     <!-- Picture Uploads and Positions -->
     <a-plane position="5 5 -13" width="4" height="3" material="src: #würfel"></a-plane>
     <a-plane position="-8 5 -13" width="4" height="3" material="src: #quader"></a-plane>
-    <a-plane position="-11 5 -5" rotation="0 90 0" width="4" height="3" material="src: #pyramide"></a-plane>
+    <a-plane position="-11 5 -5" rotation="0 90 0" width="4" height="3" material="src: #zylinder"></a-plane>
     <a-plane position="-11 5 5" rotation="0 90 0" width="4" height="3" material="src: #kreis"></a-plane>
     <a-plane position="-3 5 8" rotation="0 -180 0" width="4" height="3" material="src: #quadrat"></a-plane>
     <a-plane position="8 5 8" rotation="0 -180 0" width="4" height="3" material="src: #rechteck"></a-plane>
     <a-plane position="11 5 2" rotation="0 -90 0" width="4" height="3" material="src: #dreieck"></a-plane>
-    <a-plane position="11 5 -9" rotation="0 -90 0" width="4" height="3"material="src: #kugel; border: color: black;"></a-plane>
+    <a-plane position="11 5 -9" rotation="0 -90 0" width="4" height="3"material="src: #kugel"></a-plane>
 
+    
 
       <!-- Sky -->
       <a-sky color="white"></a-sky>
@@ -105,7 +106,7 @@
       <!-- grabbable Box -->
       <a-box
       id="Würfel"
-        box-volume
+        box-properties
         hoverable=""
         grabbable=""
         stretchable=""
@@ -118,6 +119,12 @@
         scale="2 2 2"
       ></a-box>
     
+    
+      <!-- Text-Anzeige für den Würfel -->
+  <a-gui-button id="volumeText" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" position="9 6 -13" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
+<a-gui-button id="surfaceAreaText" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" position="9 5 -13" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
+<a-gui-button id="dimensionsText" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" position="9 4 -13" key-code="32"value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent"
+background-color=dodgerblue bevel=false></a-gui-button>
   
 
   <a-gui-button
@@ -141,42 +148,17 @@
   bevel="false">
 </a-gui-button>
 
-    <!-- Text-Anzeige für den Würfel -->
-  <a-gui-button
-      id="volumeText"         
-      width="2" 
-      height="3"
-      base-depth="0.025"
-      depth="0.1"
-      gap="0.1"
-      position="9 5 -13"
-      key-code="32"
-      value=""
-      font-family="Arial, sans-serif"
-      font-size="0.2"
-      font-color="white"
-      active-color="red"
-      hover-color="lightblue"
-      border-color="transparent"
-      focus-color="transparent"
-      background-color="dodgerblue"
-      bevel="false"
-    ></a-gui-button>
+  
       
 
-      <a-box
-      id="Quader"
-      hoverable
-        grabbable
-        stretchable
-        draggable
-        droppable
-        class="grabbable"
-        color="pink"
-        position="-8 1.4 -13"
-        scale="4 2 2"
-      ></a-box>
-
+    
+    <a-box id="Quader" box-properties hoverable grabbable stretchable draggable droppable class="grabbable" color="pink" position="-8 1.4 -13" scale="4 2 2"></a-box>
+    
+<a-gui-button id="volumeQuader" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" position="-2.8 6 -13" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
+<a-gui-button id="surfaceQuader" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" position="-2.8 5 -13" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
+<a-gui-button id="dimensionsQuader" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" position="-2.8 4 -13" key-code="32"value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent"
+background-color=dodgerblue bevel=false></a-gui-button>
+    
       <a-gui-button
       id="QuaderText"
       width="3"
@@ -199,7 +181,7 @@
 
   
     
-    <a-sphere
+   <a-sphere
     id="Kugel"
     hoverable
     grabbable
@@ -210,7 +192,13 @@
     color="yellow" 
     radius="1" 
     position="11 1.4 -9"
+    scale="1 1 1"  
     ></a-sphere>
+    
+<a-gui-button id="volumeKugel" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" rotation="0 -90 0" position="11 6 -5" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
+<a-gui-button id="surfaceKugel" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" rotation="0 -90 0" position="11 5 -5" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
+<a-gui-button id="radiusKugel" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" rotation="0 -90 0" position="11 4 -5" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
+
 
     <a-gui-button
       id="KugelText"
@@ -232,23 +220,29 @@
   background-color="dodgerblue">
 </a-gui-button>
     
-    <a-cone
-    id="Pyramide"
-            hoverable
+    <a-entity
+    id="Zylinder"
+    cylinder-properties          
+    hoverable
     grabbable
     stretchable
     draggable
     droppable
     class="grabbable"
     color="purple"        
-    radius-bottom="1"  
-    height="1"        
-    segments-radial="4"
+     geometry="primitive: cylinder; height: 2; radius: 0.5"
     position="-11 1.4 -5">
-    </a-cone>
+    </a-entity>
+    
+    <a-gui-button id="volumeText" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" rotation="0 -90 0" position="-11 6 -9" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent"
+background-color="dodgerblue" bevel="false"></a-gui-button>
+<a-gui-button id="surfaceAreaText" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" rotation="0 -90 0" position="-11 5 -9" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
+<a-gui-button id="dimensionsText" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" rotation="0 -90 0" position="-11 4 -9" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
+
+      
 
     <a-gui-button
-    id="PyramideText"
+    id="ZylinderText"
 width="3"
 height="2"
 base-depth="0.025"
@@ -256,7 +250,7 @@ depth="0.05"
 gap="0.05"
 position="-11 1.4 -9"
 rotation="0 90 0"
-value="Die Pyramide hat 5 Einzelflächen, 5 Ecken und 8 Kanten. Die Grundfläche ist quadratisch und die 4 anderen Flächen dreieckig"
+value="Hier kommt der Infotext zu Zylinder hin"
 font-family="Arial, sans-serif"
 font-size="0.2"
 font-color="white"
@@ -427,7 +421,7 @@ height="10"
 base-depth="0.025"
 depth="0.05"
 gap="0.05"
-position="-1.3 8 -13"
+position="-1.3 15 -13"
 rotation="20 0 0"
 value="
        Diese Umgebung ist dazu da, um mathematisch geometrische Figuren
@@ -451,30 +445,94 @@ background-color="dodgerblue">
 </a-gui-button>
     
 <script>
-  AFRAME.registerComponent('box-volume', {
+ AFRAME.registerComponent('box-properties', {
   init: function () {
-    // Referenz zum Text-Element auf dem Interface
+    // Referenzen zu den Text-Elementen auf dem Interface für den Würfel
     this.volumeText = document.querySelector('#volumeText');
+    this.surfaceAreaText = document.querySelector('#surfaceAreaText');
+    this.dimensionsText = document.querySelector('#dimensionsText');
+    
+    // Referenzen zu den Text-Elementen auf dem Interface für den Quader
+    this.volumeQuader = document.querySelector('#volumeQuader');
+    this.surfaceQuader = document.querySelector('#surfaceQuader');
+    this.dimensionsQuader = document.querySelector('#dimensionsQuader');
+
+    // Referenzen zu den Text-Elementen auf dem Interface für die Kugel
+    this.volumeKugel = document.querySelector('#volumeKugel');
+    this.surfaceKugel = document.querySelector('#surfaceKugel');
+    
     // Initialisieren Sie das vorherige Volumen auf null
     this.previousVolume = null;
   },
 
+  update: function () {
+    // Rufen Sie die Methode zum Aktualisieren der Maße auf
+    this.updateDimensions();
+  },
+
   tick: function () {
-    // Holen Sie sich die aktuellen Maße der Box
+    // Holen Sie sich die aktuellen Maße der Box (oder Kugel)
     var scale = this.el.object3D.scale;
 
-    // Berechnen Sie das Volumen
+    // Berechnen Sie das Volumen (für Box oder Kugel)
     var volume = scale.x * scale.y * scale.z;
+
+    // Berechnen Sie die Oberfläche für den Würfel
+    var surfaceAreaCube = 6 * (scale.x * scale.x);
+
+    // Berechnen Sie die Oberfläche für den Quader
+    var surfaceAreaQuader = 2 * (scale.x * scale.y + scale.x * scale.z + scale.y * scale.z);
+
+    // Berechnen Sie das Volumen für die Kugel
+    var radius = scale.x; // Der Radius der Kugel ist die Hälfte der Skalierung (Annahme: gleichmäßige Skalierung)
+    var volumeKugel = (4/3) * Math.PI * Math.pow(radius, 3);
+
+    // Berechnen Sie die Oberfläche für die Kugel
+    var surfaceAreaKugel = 4 * Math.PI * Math.pow(radius, 2);
 
     // Überprüfen Sie, ob sich das Volumen geändert hat
     if (volume !== this.previousVolume) {
-      // Aktualisieren Sie das Text-Element auf dem Interface
-      this.volumeText.setAttribute('value', 'Volumen: ' + volume.toFixed(2));
+      // Aktualisieren Sie die Text-Elemente auf dem Interface für den Würfel
+      this.volumeText.setAttribute('value', 'Volumen Würfel: ' + volume.toFixed(2));
+      this.surfaceAreaText.setAttribute('value', 'Oberfläche Würfel: ' + surfaceAreaCube.toFixed(2));
+      this.dimensionsText.setAttribute('value', 'Maße Würfel: ' + scale.x.toFixed(2) + ' x ' + scale.y.toFixed(2) + ' x ' + scale.z.toFixed(2));
+
+      // Aktualisieren Sie die Text-Elemente auf dem Interface für den Quader
+      this.volumeQuader.setAttribute('value', 'Volumen Quader: ' + volume.toFixed(2));
+      this.surfaceQuader.setAttribute('value', 'Oberfläche Quader: ' + surfaceAreaQuader.toFixed(2));
+      this.dimensionsQuader.setAttribute('value', 'Maße Quader: ' + scale.x.toFixed(2) + ' x ' + scale.y.toFixed(2) + ' x ' + scale.z.toFixed(2));
+
+      // Aktualisieren Sie die Text-Elemente auf dem Interface für die Kugel
+      this.volumeKugel.setAttribute('value', 'Volumen Kugel: ' + volumeKugel.toFixed(2));
+      this.surfaceKugel.setAttribute('value', 'Oberfläche Kugel: ' + surfaceAreaKugel.toFixed(2));
+
       // Aktualisieren Sie das vorherige Volumen
       this.previousVolume = volume;
     }
+  },
+
+  // Methode zum Aktualisieren der Maße, die von außen aufgerufen werden kann
+  updateDimensions: function () {
+    // Holen Sie sich die aktuellen Maße der Kugel
+    var scale = this.el.object3D.scale;
+
+    // Berechnen Sie den Radius der Kugel
+    var radius = scale.x; // Der Radius der Kugel ist die Hälfte der Skalierung (Annahme: gleichmäßige Skalierung)
+
+    // Berechnen Sie das Volumen für die Kugel
+    var volumeKugel = (4/3) * Math.PI * Math.pow(radius, 3);
+
+    // Berechnen Sie die Oberfläche für die Kugel
+    var surfaceAreaKugel = 4 * Math.PI * Math.pow(radius, 2);
+
+    // Aktualisieren Sie die Text-Elemente auf dem Interface für die Kugel
+    this.volumeKugel.setAttribute('value', 'Volumen Kugel: ' + volumeKugel.toFixed(2));
+    this.surfaceKugel.setAttribute('value', 'Oberfläche Kugel: ' + surfaceAreaKugel.toFixed(2));
   }
 });
+
+
+
   </script>
         </a-scene> 
   

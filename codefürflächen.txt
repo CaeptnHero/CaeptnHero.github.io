@@ -1,0 +1,147 @@
+<!-- Flächen -->
+
+<a-entity
+  id="Kreis"
+  hoverable
+    grabbable
+    stretchable
+    draggable
+    droppable
+    class="grabbable"        
+  geometry="primitive: circle; radius: 1; segmentsRadial: 100; segmentsTheta: 200"
+  material="color: blue; shader: flat"
+  position="-11 1.4 5"
+  rotation="0 90 0">
+  </a-entity>
+
+  <a-gui-button
+    id="KreisText"
+width="3"
+height="2.3"
+base-depth="0.025"
+depth="0.05"
+gap="0.05"
+position="-11 1.4 2"
+rotation="0 90 0"
+value="Der Kreis ist eine ebene Figur. Sie hat keine Ecken und unendlich
+       viele Seiten (Kreislinie) und eine Fläche. Alle Punkte die durch den
+       Mittelpunkt zur anderen Seite gehen sind gleich lang (Durchmesser)"
+font-family="Arial, sans-serif"
+font-size="0.2"
+font-color="white"
+active-color="red"
+hover-color="lightblue"
+border-color="transparent"
+focus-color="transparent"
+background-color="dodgerblue">
+</a-gui-button>
+
+      <a-triangle
+        id="Dreieck"
+                  hoverable
+    grabbable
+    stretchable
+    draggable
+    droppable
+    class="grabbable"
+        material="color: red"
+        vertex-a="-1 0 0"
+        vertex-b="1 0 0"
+        vertex-c="0 2 0"
+        rotation="0 -90 0"
+        position="11 0.5 2"
+      ></a-triangle>
+
+      <a-gui-button
+    id="DreieckText"
+width="3"
+height="2"
+base-depth="0.025"
+depth="0.05"
+gap="0.05"
+position="11 1.4 5"
+rotation="0 -90 0"
+value="Ein Dreieck ist eine ebene Figur. Sie besteht aus drei Strecken,
+       von denen je zwei Seiten einen gemeinsamen Eckpunkt haben"
+font-family="Arial, sans-serif"
+font-size="0.2"
+font-color="white"
+active-color="red"
+hover-color="lightblue"
+border-color="transparent"
+focus-color="transparent"
+background-color="dodgerblue">
+</a-gui-button>
+
+      <a-plane
+        id="Quadrat"
+               hoverable
+    grabbable
+    stretchable
+    draggable
+    droppable
+    class="grabbable"
+        material="color: grey"
+        position="-3 1.4 8"
+        width="2"
+        height="2"
+        rotation="0 180 0"
+      ></a-plane>
+
+
+      <a-gui-button
+    id="QuadratText"
+width="3"
+height="2"
+base-depth="0.025"
+depth="0.05"
+gap="0.05"
+position="-7 1.4 8"
+rotation="0 180 0"
+value="Alle Seiten sind gleich lang und parallel. Zudem sind die Nachbarseiten
+       immer senkrecht zueinander und die Figur hat vier rechte Winkel"
+font-family="Arial, sans-serif"
+font-size="0.2"
+font-color="white"
+active-color="red"
+hover-color="lightblue"
+border-color="transparent"
+focus-color="transparent"
+background-color="dodgerblue">
+</a-gui-button>
+
+      <a-plane
+        id="Rechteck"
+               hoverable
+    grabbable
+    stretchable
+    draggable
+    droppable
+    class="grabbable"
+        material="color: lightgreen"
+        position="8 1.4 8"
+        width="3"
+        height="2"
+        rotation="0 180 0"
+      ></a-plane>
+
+      <a-gui-button
+    id="RechteckText"
+width="3"
+height="2"
+base-depth="0.025"
+depth="0.05"
+gap="0.05"
+position="4 1.4 8"
+rotation="0 180 0"
+value="Gegenüber liegende Seiten sind gleich lang und parallel.
+       Jeweils zwei Kanten sind unterschiedlich lang"
+font-family="Arial, sans-serif"
+font-size="0.2"
+font-color="white"
+active-color="red"
+hover-color="lightblue"
+border-color="transparent"
+focus-color="transparent"
+background-color="dodgerblue">
+</a-gui-button>
