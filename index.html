@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Bib for A-Frame -->
+  <!-- Bib for A-Frame -->
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     
     <!-- Bib for fly? -->
@@ -38,93 +38,269 @@
     <title>Prototype</title>
   </head>
   <body>
-    <a-scene physics="" shadow="type: basic">
+    <a-scene>
       
       <!-- Ground collider-->
-      <a-box static-body="" width="100" height="0.01" depth="100" visible="false" material="" geometry="" velocity=""></a-box>
+      
+      <a-box 
+          static-body="" 
+          width="100" 
+          height="0.01" 
+          depth="100" 
+          visible="false" 
+          material="" 
+          geometry="" 
+          velocity="">
+      </a-box>
       
       <!-- Player + Camera -->
-      <a-entity id="player" position="0 -0.2 4">
-        <a-entity id="camera" camera="near: 0.001; far: 1000;"user-height="1.6" position="0 1.7 0" look-controls="pointerLockEnabled: true" rotation="">
+      <a-entity 
+          id="player" 
+          position="0 -0.2 4">
+        
+        <a-entity 
+              id="camera" 
+              camera="near: 0.001; far: 1000;"
+              user-height="10" 
+              position="0 5 -3" 
+              look-controls="pointerLockEnabled: true" 
+              rotation="">
         </a-entity>
-    <a-entity sphere-collider="objects: a-box, a-cone, a-sphere, a-entity" super-hands hand-controls="hand: left" blink-controls></a-entity>
-    <a-entity sphere-collider="objects: a-box, a-cone, a-sphere, a-entity" super-hands hand-controls="hand: right" blink-controls></a-entity>
+        
+    <a-entity 
+      sphere-collider="objects: a-box" 
+      super-hands         
+      hand-controls="hand: left"         
+      blink-controls>                
+    </a-entity>
+        
+    <a-entity
+        sphere-collider="objects: a-box" 
+        super-hands 
+        hand-controls="hand: right" 
+        blink-controls>
+    </a-entity>
       </a-entity>
 
-        <a-entity environment ="preset: forest"></a-entity>
         <a-entity teleport-controls="cameraRig: #cameraRig; teleportOrigin: #camera;"></a-entity>
 
-       <!-- Lights -->
+        <a-entity 
+         class="teleportRay" 
+         visible="">
+        </a-entity>
 
-        <canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" width="418" height="927"></canvas>
+        <a-entity 
+         class="hitEntity" 
+         visible="">
+        </a-entity>
 
-        <a-entity class="teleportRay" visible=""></a-entity>
-        <a-entity class="hitEntity" visible=""></a-entity>
-        <a-entity geometry="" rotation="" material=""></a-entity>
-        <a-entity position="" geometry="" material=""></a-entity>
-        <a-entity position="" rotation="" material="" material="" visible=""></a-entity>
-      </a-entity>
+        <a-entity 
+         geometry="" 
+         rotation="" 
+         material="">
+        </a-entity>
+
+        <a-entity 
+         position="" 
+         geometry="" 
+         material="">
+        </a-entity>
+
+        <a-entity 
+         position="" 
+         rotation="" 
+         material="" 
+         visible="">
+        </a-entity>
 
      <!-- Asset management system. -->
   <a-assets>   
-    <img id="würfel" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/w%C3%BCrfel.png?v=1693917835928">
-    <img id="quader" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/quader.png?v=1693917834745">
-    <img id="zylinder" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/zylinder.png?v=1694537938963">
-    <img id="kreis" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/kreis.png?v=1693917824461">
-    <img id="quadrat" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/quadrat.png?v=1693917822470">
-    <img id="rechteck" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/rechteck.png?v=1693917823067">
-    <img id="dreieck" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/dreieck.png?v=1693917823740">
-    <img id="kugel" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/kugel.png?v=1693917832945">
+    <img 
+    id="würfel" 
+    src="https://cdn.glitch.global/97897bf1-6cf1-471b-b8a0-512886126d60/w%C3%BCrfel.png?v=1695667049248">
+
+    <img 
+     id="quader" 
+     src="https://cdn.glitch.global/97897bf1-6cf1-471b-b8a0-512886126d60/quader.png?v=1695667048713">
   </a-assets>
     
     <!-- Picture Uploads and Positions -->
-    <a-plane position="5 5 -13" width="4" height="3" material="src: #würfel"></a-plane>
-    <a-plane position="-8 5 -13" width="4" height="3" material="src: #quader"></a-plane>
-    <a-plane position="-11 5 -5" rotation="0 90 0" width="4" height="3" material="src: #zylinder"></a-plane>
-    <a-plane position="-11 5 5" rotation="0 90 0" width="4" height="3" material="src: #kreis"></a-plane>
-    <a-plane position="-3 5 8" rotation="0 -180 0" width="4" height="3" material="src: #quadrat"></a-plane>
-    <a-plane position="8 5 8" rotation="0 -180 0" width="4" height="3" material="src: #rechteck"></a-plane>
-    <a-plane position="11 5 2" rotation="0 -90 0" width="4" height="3" material="src: #dreieck"></a-plane>
-    <a-plane position="11 5 -9" rotation="0 -90 0" width="4" height="3"material="src: #kugel"></a-plane>
+    <a-plane 
+     position="8 5 -2" 
+     rotation="0 -90 0" 
+     width="4" 
+     height="3" 
+     material="src: #würfel">
+    </a-plane>
 
-    
+    <a-plane 
+     position="-8 5 -3" 
+     rotation="0 90 0" 
+     width="4" 
+     height="3" 
+     material="src: #quader">
+    </a-plane>
+ 
 
       <!-- Sky -->
       <a-sky color="white"></a-sky>
 
-      <!-- Ground -->
+      <!-- Ground + Walls -->
       <a-plane
         position="0 -1 -4"
         rotation="-90 0 0"
         width="26"
         height="26"
+        color="#414006"
+      ></a-plane>
+    
+    <!--ceiling -->
+    
+    <a-plane
+        position="0 8 -4"
+        rotation="90 0 0"
+        width="26"
+        height="26"
         color="#B4BCB0"
       ></a-plane>
     
+        <!--Wall left -->
+
+    <a-plane
+        position="-10 5 -4"
+        rotation="0 90 0"
+        width="26"
+        height="26"
+        color="#B4BCB0"
+      ></a-plane>
+    
+       <!--Wall right -->
+
+    <a-plane
+        position="10 5 -4"
+        rotation="0 -90 0"
+        width="26"
+        height="26"
+        color="#B4BCB0"
+      ></a-plane>
+    
+    <!--Wall front -->
+
+    <a-plane
+        position="0 5 -14"
+        rotation="0 0 0"
+        width="30"
+        height="30"
+        color="#B4BCB0"
+      ></a-plane>
+    
+    <!--Wall back-->
+
+    <a-plane
+        position="0 9 11"
+        rotation="0 180 0"
+        width="30"
+        height="30"
+        color="#B4BCB0"
+      ></a-plane>
+      
+      
+       <!-- Lights -->
+      
+      <a-box
+  id="Light1l"
+  color= "yellow"
+  scale="2 0.12 0.12"
+  position="-2 7 -3"
+  rotation="0 180 0"
+    ></a-box>
+      
+      <a-box
+  id="Light2l"
+  color= "yellow"
+  scale="2 0.12 0.12"
+  position="2 7 -3"
+  rotation="0 180 0"
+    ></a-box>
+
+
 
       <!-- Shapes -->
       <!-- grabbable Box -->
       <a-box
       id="Würfel"
+             
         box-properties
         hoverable=""
         grabbable=""
         stretchable=""
         draggable=""
         droppable=""
-        class="cube"
-        color="green"
-        material="color:green"
-        position="5 1.4 -13"
+        color="#935D69"
+        position="8 1.4 -3"
+        rotation="0 -90 0"
         scale="2 2 2"
       ></a-box>
     
     
       <!-- Text-Anzeige für den Würfel -->
-  <a-gui-button id="volumeText" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" position="9 6 -13" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
-<a-gui-button id="surfaceAreaText" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" position="9 5 -13" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
-<a-gui-button id="dimensionsText" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" position="9 4 -13" key-code="32"value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent"
-background-color=dodgerblue bevel=false></a-gui-button>
+<a-gui-button
+ id="volumeText" 
+ width="2" 
+ height="2" 
+ base-depth="0.025" 
+ depth="0.1" 
+ gap="0.1" 
+ position="8 6 -8" 
+ rotation="0 -90 0"  
+ key-code="32" 
+ value="" 
+ font-family="Arial, sans-serif" 
+ font-size="0.2" 
+ font-color="black" 
+ border-color="black"   
+ background-color="white" 
+ bevel="false">
+</a-gui-button>
+
+<a-gui-button
+ id="surfaceAreaText"
+ width="2" 
+ height="2" 
+ base-depth="0.025" 
+ depth="0.1" 
+ gap="0.1" 
+ position="8 5 -8" 
+ rotation="0 -90 0"  
+ key-code="32" 
+ value="" 
+ font-family="Arial, sans-serif" 
+ font-size="0.2" 
+ font-color="black" 
+ border-color="black"   
+ background-color="white" 
+ bevel="false">
+</a-gui-button>
+
+
+<a-gui-button 
+ id="dimensionsText" 
+ width="2" 
+ height="2" 
+ base-depth="0.025" 
+ depth="0.1" 
+ gap="0.1" 
+ position="8 4 -8" 
+ rotation="0 -90 0" 
+ key-code="32" 
+ value="" 
+ font-family="Arial, sans-serif" 
+ font-size="0.2" 
+ font-color="black"  
+ border-color="black" 
+ background-color="white" 
+ bevel="false">
+</a-gui-button>
   
 
   <a-gui-button
@@ -134,17 +310,15 @@ background-color=dodgerblue bevel=false></a-gui-button>
   base-depth="0.025"
   depth="0.05"
   gap="0.05"
-  position="9 1.4 -13"
+  position="8 1.4 -8"
+  rotation="0 -90 0"
   key-code="32"
   value="Der Würfel ist ein Körper mit acht Ecken,sechs Flächen und zwölf Kanten. Alle Flächen bestehen aus gleich großen Quadranten"
   font-family="Arial, sans-serif"
   font-size="0.2"
-  font-color="white"
-  active-color="red"
-  hover-color="lightblue"
-  border-color="transparent"
-  focus-color="transparent"
-  background-color="dodgerblue"
+  font-color="black"
+  background-color="white"
+  border-color="black"
   bevel="false">
 </a-gui-button>
 
@@ -152,12 +326,78 @@ background-color=dodgerblue bevel=false></a-gui-button>
       
 
     
-    <a-box id="Quader" box-properties hoverable grabbable stretchable draggable droppable class="grabbable" color="pink" position="-8 1.4 -13" scale="4 2 2"></a-box>
+<a-box 
+ id="Quader" 
+ rotation="0 90 0" 
+ box-properties2 
+ hoverable 
+ grabbable 
+ stretchable 
+ draggable 
+ droppable 
+ class="grabbable"
+ color="#295FA8" 
+ position="-8 1.4 -3" 
+ scale="4 2 2">
+</a-box>
     
-<a-gui-button id="volumeQuader" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" position="-2.8 6 -13" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
-<a-gui-button id="surfaceQuader" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" position="-2.8 5 -13" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
-<a-gui-button id="dimensionsQuader" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" position="-2.8 4 -13" key-code="32"value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent"
-background-color=dodgerblue bevel=false></a-gui-button>
+<a-gui-button id="volumeQuader"
+ width="2" 
+ height="2" 
+ base-depth="0.025" 
+ depth="0.1" 
+ gap="0.1" 
+ position="-8 6 -8" 
+ rotation="0 90 0" 
+ key-code="32" value="" 
+ font-family="Arial, sans-serif" 
+ font-size="0.2" 
+ font-color="black" 
+ active-color="red"  
+ border-color="black"  
+ background-color="white" 
+ bevel="false">
+</a-gui-button>
+
+<a-gui-button
+ id="surfaceQuader" 
+ width="2" 
+ height="2" 
+ base-depth="0.025" 
+ depth="0.1" 
+ gap="0.1" 
+ position="-8 5 -8" 
+ rotation="0 90 0" 
+ key-code="32" 
+ value="" 
+ font-family="Arial, sans-serif" 
+ font-size="0.2" 
+ font-color="black" 
+ active-color="red"  
+ border-color="black"  
+ background-color="white" 
+ bevel="false">
+</a-gui-button>
+
+<a-gui-button
+ id="dimensionsQuader" 
+ width="2" 
+ height="2" 
+ base-depth="0.025" 
+ depth="0.1" 
+ gap="0.1" 
+ position="-8 4 -8" 
+ rotation="0 90 0" 
+ key-code="32"
+ value="" 
+ font-family="Arial, sans-serif" 
+ font-size="0.2" 
+ font-color="black" 
+ active-color="red"  
+ border-color="black" 
+ background-color=white 
+ bevel=false>
+</a-gui-button>
     
       <a-gui-button
       id="QuaderText"
@@ -166,263 +406,34 @@ background-color=dodgerblue bevel=false></a-gui-button>
       base-depth="0.025"
       depth="0.05"
       gap="0.05"
-      position="-2.8 1.4 -13"
+      position="-8 1.4 -8"
+      rotation="0 90 0"              
       value="Ein Quader ist ein räumlicher Körper, dass aus sechs Rechtecken besteht.
              Jeweils zwei Rechtecke liegen sich gegenüber und sind parallel zueinander"
       font-family="Arial, sans-serif"
       font-size="0.2"
-      font-color="white"
+      font-color="black"
       active-color="red"
-      hover-color="lightblue"
-      border-color="transparent"
-      focus-color="transparent"
-      background-color="dodgerblue">
+      border-color="black"
+      background-color="white"
+      radius="1" >
       </a-gui-button>
 
   
     
-   <a-sphere
-    id="Kugel"
-    hoverable
-    grabbable
-    stretchable
-    draggable
-    droppable
-    class="grabbable"          
-    color="yellow" 
-    radius="1" 
-    position="11 1.4 -9"
-    scale="1 1 1"  
-    ></a-sphere>
-    
-<a-gui-button id="volumeKugel" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" rotation="0 -90 0" position="11 6 -5" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
-<a-gui-button id="surfaceKugel" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" rotation="0 -90 0" position="11 5 -5" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
-<a-gui-button id="radiusKugel" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" rotation="0 -90 0" position="11 4 -5" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
 
-
-    <a-gui-button
-      id="KugelText"
-  width="3"
-  height="2"
-  base-depth="0.025"
-  depth="0.05"
-  gap="0.05"
-  position="11 1.4 -5"
-  rotation="0 -90 0"
-  value="Die Kugel hat keine Ecken, keine Kanten und nur eine Fläche"
-  font-family="Arial, sans-serif"
-  font-size="0.2"
-  font-color="white"
-  active-color="red"
-  hover-color="lightblue"
-  border-color="transparent"
-  focus-color="transparent"
-  background-color="dodgerblue">
-</a-gui-button>
-    
-    <a-entity
-    id="Zylinder"
-    cylinder-properties          
-    hoverable
-    grabbable
-    stretchable
-    draggable
-    droppable
-    class="grabbable"
-    color="purple"        
-     geometry="primitive: cylinder; height: 2; radius: 0.5"
-    position="-11 1.4 -5">
-    </a-entity>
-    
-    <a-gui-button id="volumeText" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" rotation="0 -90 0" position="-11 6 -9" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent"
-background-color="dodgerblue" bevel="false"></a-gui-button>
-<a-gui-button id="surfaceAreaText" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" rotation="0 -90 0" position="-11 5 -9" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
-<a-gui-button id="dimensionsText" width="2" height="2" base-depth="0.025" depth="0.1" gap="0.1" rotation="0 -90 0" position="-11 4 -9" key-code="32" value="" font-family="Arial, sans-serif" font-size="0.2" font-color="white" active-color="red" hover-color="lightblue" border-color="transparent" focus-color="transparent" background-color="dodgerblue" bevel="false"></a-gui-button>
-
-      
-
-    <a-gui-button
-    id="ZylinderText"
-width="3"
-height="2"
-base-depth="0.025"
-depth="0.05"
-gap="0.05"
-position="-11 1.4 -9"
-rotation="0 90 0"
-value="Hier kommt der Infotext zu Zylinder hin"
-font-family="Arial, sans-serif"
-font-size="0.2"
-font-color="white"
-active-color="red"
-hover-color="lightblue"
-border-color="transparent"
-focus-color="transparent"
-background-color="dodgerblue">
-</a-gui-button>
-    
-
-      
-
-<!-- Flächen -->
-
-<a-entity
-  id="Kreis"
-  hoverable
-    grabbable
-    stretchable
-    draggable
-    droppable
-    class="grabbable"        
-  geometry="primitive: circle; radius: 1; segmentsRadial: 100; segmentsTheta: 200"
-  material="color: blue; shader: flat"
-  position="-11 1.4 5"
-  rotation="0 90 0">
-  </a-entity>
-
-  <a-gui-button
-    id="KreisText"
-width="3"
-height="2.3"
-base-depth="0.025"
-depth="0.05"
-gap="0.05"
-position="-11 1.4 2"
-rotation="0 90 0"
-value="Der Kreis ist eine ebene Figur. Sie hat keine Ecken und unendlich
-       viele Seiten (Kreislinie) und eine Fläche. Alle Punkte die durch den
-       Mittelpunkt zur anderen Seite gehen sind gleich lang (Durchmesser)"
-font-family="Arial, sans-serif"
-font-size="0.2"
-font-color="white"
-active-color="red"
-hover-color="lightblue"
-border-color="transparent"
-focus-color="transparent"
-background-color="dodgerblue">
-</a-gui-button>
-
-      <a-triangle
-        id="Dreieck"
-                  hoverable
-    grabbable
-    stretchable
-    draggable
-    droppable
-    class="grabbable"
-        material="color: red"
-        vertex-a="-1 0 0"
-        vertex-b="1 0 0"
-        vertex-c="0 2 0"
-        rotation="0 -90 0"
-        position="11 0.5 2"
-      ></a-triangle>
-
-      <a-gui-button
-    id="DreieckText"
-width="3"
-height="2"
-base-depth="0.025"
-depth="0.05"
-gap="0.05"
-position="11 1.4 5"
-rotation="0 -90 0"
-value="Ein Dreieck ist eine ebene Figur. Sie besteht aus drei Strecken,
-       von denen je zwei Seiten einen gemeinsamen Eckpunkt haben"
-font-family="Arial, sans-serif"
-font-size="0.2"
-font-color="white"
-active-color="red"
-hover-color="lightblue"
-border-color="transparent"
-focus-color="transparent"
-background-color="dodgerblue">
-</a-gui-button>
-
-      <a-plane
-        id="Quadrat"
-               hoverable
-    grabbable
-    stretchable
-    draggable
-    droppable
-    class="grabbable"
-        material="color: grey"
-        position="-3 1.4 8"
-        width="2"
-        height="2"
-        rotation="0 180 0"
-      ></a-plane>
-
-
-      <a-gui-button
-    id="QuadratText"
-width="3"
-height="2"
-base-depth="0.025"
-depth="0.05"
-gap="0.05"
-position="-7 1.4 8"
-rotation="0 180 0"
-value="Alle Seiten sind gleich lang und parallel. Zudem sind die Nachbarseiten
-       immer senkrecht zueinander und die Figur hat vier rechte Winkel"
-font-family="Arial, sans-serif"
-font-size="0.2"
-font-color="white"
-active-color="red"
-hover-color="lightblue"
-border-color="transparent"
-focus-color="transparent"
-background-color="dodgerblue">
-</a-gui-button>
-
-      <a-plane
-        id="Rechteck"
-               hoverable
-    grabbable
-    stretchable
-    draggable
-    droppable
-    class="grabbable"
-        material="color: lightgreen"
-        position="8 1.4 8"
-        width="3"
-        height="2"
-        rotation="0 180 0"
-      ></a-plane>
-
-      <a-gui-button
-    id="RechteckText"
-width="3"
-height="2"
-base-depth="0.025"
-depth="0.05"
-gap="0.05"
-position="4 1.4 8"
-rotation="0 180 0"
-value="Gegenüber liegende Seiten sind gleich lang und parallel.
-       Jeweils zwei Kanten sind unterschiedlich lang"
-font-family="Arial, sans-serif"
-font-size="0.2"
-font-color="white"
-active-color="red"
-hover-color="lightblue"
-border-color="transparent"
-focus-color="transparent"
-background-color="dodgerblue">
-</a-gui-button>
 
 <!-- Text -->
     
      <a-gui-button
     id="Wilkommen"
-width="5"
-height="10"
+width="8"
+height="4"
 base-depth="0.025"
 depth="0.05"
 gap="0.05"
-position="-1.3 15 -13"
-rotation="20 0 0"
+position="0 3 -12"
+rotation="0 0 0"
 value="
        Diese Umgebung ist dazu da, um mathematisch geometrische Figuren
        besser kennen zu lernen. 
@@ -437,58 +448,90 @@ value="
        Grundfläche = G
        Mantelfläche = M"
 font-family="Arial, sans-serif"
-font-size="0.4"
+font-size="0.2"
 font-color="white"
-border-color="transparent"
-focus-color="transparent"
-background-color="dodgerblue">
+background-color="#006400"
+                   border-color= "grey"
+               radius="1">
 </a-gui-button>
+      
+      
+      
+<!-- Left Table -->
+    
+     <a-gui-button
+    id="Left"
+width="4"
+height="4"
+base-depth="0.025"
+depth="0.05"
+gap="0.05"
+position="-6 3 -11.7"
+rotation="0 10 0"
+value=" 
+       Und bei den Körpern wird es wie folgt aussehen: 
+       Volumen = V
+       Oberfläche = O
+       Grundfläche = G
+       Mantelfläche = M"
+font-family="Arial, sans-serif"
+font-size="0.2"
+font-color="white"
+background-color="#006400"
+                   border-color= "grey"
+               radius="1">
+</a-gui-button>
+      
+      <!-- RightTable -->
+    
+     <a-gui-button
+    id="Right"
+width="4"
+height="4"
+base-depth="0.025"
+depth="0.05"
+gap="0.05"
+position="6 3 -11.7"
+rotation="0 -10 0"
+value="Viel Spaß und Erfolg!"
+       
+font-family="Arial, sans-serif"
+font-size="0.2"
+font-color="white"
+background-color="#006400"
+border-color= "grey"
+               radius="1">
+</a-gui-button>
+      
+      
+      
+      
+      
     
 <script>
- AFRAME.registerComponent('box-properties', {
+ // Komponente für die Berechnung und Anzeige der Eigenschaften des Würfels und Quaders
+AFRAME.registerComponent('box-properties', {
   init: function () {
     // Referenzen zu den Text-Elementen auf dem Interface für den Würfel
     this.volumeText = document.querySelector('#volumeText');
     this.surfaceAreaText = document.querySelector('#surfaceAreaText');
     this.dimensionsText = document.querySelector('#dimensionsText');
-    
-    // Referenzen zu den Text-Elementen auf dem Interface für den Quader
-    this.volumeQuader = document.querySelector('#volumeQuader');
-    this.surfaceQuader = document.querySelector('#surfaceQuader');
-    this.dimensionsQuader = document.querySelector('#dimensionsQuader');
 
-    // Referenzen zu den Text-Elementen auf dem Interface für die Kugel
-    this.volumeKugel = document.querySelector('#volumeKugel');
-    this.surfaceKugel = document.querySelector('#surfaceKugel');
-    
+  
     // Initialisieren Sie das vorherige Volumen auf null
     this.previousVolume = null;
   },
 
-  update: function () {
-    // Rufen Sie die Methode zum Aktualisieren der Maße auf
-    this.updateDimensions();
-  },
-
   tick: function () {
-    // Holen Sie sich die aktuellen Maße der Box (oder Kugel)
+    // Holen Sie sich die aktuellen Maße der Entität (Würfel oder Quader)
     var scale = this.el.object3D.scale;
 
-    // Berechnen Sie das Volumen (für Box oder Kugel)
+    // Berechnen Sie das Volumen für die Entität (Würfel oder Quader)
     var volume = scale.x * scale.y * scale.z;
 
     // Berechnen Sie die Oberfläche für den Würfel
     var surfaceAreaCube = 6 * (scale.x * scale.x);
 
-    // Berechnen Sie die Oberfläche für den Quader
-    var surfaceAreaQuader = 2 * (scale.x * scale.y + scale.x * scale.z + scale.y * scale.z);
-
-    // Berechnen Sie das Volumen für die Kugel
-    var radius = scale.x; // Der Radius der Kugel ist die Hälfte der Skalierung (Annahme: gleichmäßige Skalierung)
-    var volumeKugel = (4/3) * Math.PI * Math.pow(radius, 3);
-
-    // Berechnen Sie die Oberfläche für die Kugel
-    var surfaceAreaKugel = 4 * Math.PI * Math.pow(radius, 2);
 
     // Überprüfen Sie, ob sich das Volumen geändert hat
     if (volume !== this.previousVolume) {
@@ -497,45 +540,53 @@ background-color="dodgerblue">
       this.surfaceAreaText.setAttribute('value', 'Oberfläche Würfel: ' + surfaceAreaCube.toFixed(2));
       this.dimensionsText.setAttribute('value', 'Maße Würfel: ' + scale.x.toFixed(2) + ' x ' + scale.y.toFixed(2) + ' x ' + scale.z.toFixed(2));
 
+
+      // Aktualisieren Sie das vorherige Volumen
+      this.previousVolume = volume;
+    }
+  }
+});
+  
+  AFRAME.registerComponent('box-properties2', {
+  init: function () {
+    
+
+    // Referenzen zu den Text-Elementen auf dem Interface für den Quader
+    this.volumeQuader = document.querySelector('#volumeQuader');
+    this.surfaceQuader = document.querySelector('#surfaceQuader');
+    this.dimensionsQuader = document.querySelector('#dimensionsQuader');
+
+    // Initialisieren Sie das vorherige Volumen auf null
+    this.previousVolume = null;
+  },
+
+  tick: function () {
+    // Holen Sie sich die aktuellen Maße der Entität (Würfel oder Quader)
+    var scale = this.el.object3D.scale;
+
+    // Berechnen Sie das Volumen für die Entität (Würfel oder Quader)
+    var volume = scale.x * scale.y * scale.z;
+
+
+    // Berechnen Sie die Oberfläche für den Quader
+    var surfaceAreaQuader = 2 * (scale.x * scale.y + scale.x * scale.z + scale.y * scale.z);
+
+    // Überprüfen Sie, ob sich das Volumen geändert hat
+    if (volume !== this.previousVolume) {
+
       // Aktualisieren Sie die Text-Elemente auf dem Interface für den Quader
       this.volumeQuader.setAttribute('value', 'Volumen Quader: ' + volume.toFixed(2));
       this.surfaceQuader.setAttribute('value', 'Oberfläche Quader: ' + surfaceAreaQuader.toFixed(2));
       this.dimensionsQuader.setAttribute('value', 'Maße Quader: ' + scale.x.toFixed(2) + ' x ' + scale.y.toFixed(2) + ' x ' + scale.z.toFixed(2));
 
-      // Aktualisieren Sie die Text-Elemente auf dem Interface für die Kugel
-      this.volumeKugel.setAttribute('value', 'Volumen Kugel: ' + volumeKugel.toFixed(2));
-      this.surfaceKugel.setAttribute('value', 'Oberfläche Kugel: ' + surfaceAreaKugel.toFixed(2));
-
       // Aktualisieren Sie das vorherige Volumen
       this.previousVolume = volume;
     }
-  },
-
-  // Methode zum Aktualisieren der Maße, die von außen aufgerufen werden kann
-  updateDimensions: function () {
-    // Holen Sie sich die aktuellen Maße der Kugel
-    var scale = this.el.object3D.scale;
-
-    // Berechnen Sie den Radius der Kugel
-    var radius = scale.x; // Der Radius der Kugel ist die Hälfte der Skalierung (Annahme: gleichmäßige Skalierung)
-
-    // Berechnen Sie das Volumen für die Kugel
-    var volumeKugel = (4/3) * Math.PI * Math.pow(radius, 3);
-
-    // Berechnen Sie die Oberfläche für die Kugel
-    var surfaceAreaKugel = 4 * Math.PI * Math.pow(radius, 2);
-
-    // Aktualisieren Sie die Text-Elemente auf dem Interface für die Kugel
-    this.volumeKugel.setAttribute('value', 'Volumen Kugel: ' + volumeKugel.toFixed(2));
-    this.surfaceKugel.setAttribute('value', 'Oberfläche Kugel: ' + surfaceAreaKugel.toFixed(2));
   }
 });
 
-
-
   </script>
         </a-scene> 
-  
   
       </body>
       </html>
