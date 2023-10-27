@@ -10,9 +10,7 @@
     
     <!-- Bib for fly? -->
     <script src="//cdn.rawgit.com/donmccurdy/aframe-extras/v4.1.1/dist/aframe-extras.min.js"></script>
-
-    <!-- Bib for Physics -->
-    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v$npm_package_version/dist/aframe-physics-system.min.js"></script>
+ 
    
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.misc.min.js"></script>
 
@@ -33,7 +31,6 @@
     
     <!-- others bib-->
     <script src="https://unpkg.com/aframe-event-set-component@^4.1.1/dist/aframe-event-set-component.min.js"></script>
-    <script src="https://unpkg.com/aframe-physics-extras/dist/aframe-physics-extras.min.js"></script>
     
     <title>Prototype</title>
   </head>
@@ -114,7 +111,22 @@
         </a-entity>
 
      <!-- Asset management system. -->
-  <a-assets>   
+  <a-assets>
+    
+    <img id="ceiling" src="https://cdn.glitch.global/97897bf1-6cf1-471b-b8a0-512886126d60/ceillan.jpg?v=1695835540282">
+    
+    <img id= "floor" src="https://cdn.glitch.global/97897bf1-6cf1-471b-b8a0-512886126d60/oak.jpg?v=1695834927938">
+    
+    <img id= "wall" src= "https://cdn.glitch.global/97897bf1-6cf1-471b-b8a0-512886126d60/wall.jpg?v=1695836362946">
+    
+    <img id= "clock" src= "https://cdn.glitch.global/97897bf1-6cf1-471b-b8a0-512886126d60/clock.png?v=1695843285308">
+    
+    <img id= "controlls" src="https://cdn.glitch.global/25bd50e3-9284-43ef-b1d5-3c65b31eb109/Controllers.png?v=1696769010314">
+        
+    <a-asset-item id="table" src="https://cdn.glitch.me/97897bf1-6cf1-471b-b8a0-512886126d60/diningtable.gltf?v=1695883691555"></a-asset-item>
+
+
+    
     <img 
     id="würfel" 
     src="https://cdn.glitch.global/97897bf1-6cf1-471b-b8a0-512886126d60/w%C3%BCrfel.png?v=1695667049248">
@@ -126,7 +138,7 @@
     
     <!-- Picture Uploads and Positions -->
     <a-plane 
-     position="8 5 -2" 
+     position="8 5 -8" 
      rotation="0 -90 0" 
      width="4" 
      height="3" 
@@ -134,34 +146,58 @@
     </a-plane>
 
     <a-plane 
-     position="-8 5 -3" 
+     position="-8 5 -8" 
      rotation="0 90 0" 
      width="4" 
      height="3" 
      material="src: #quader">
     </a-plane>
+      
+      <!-- Clock -->
+      
+      <a-plane
+        position="0 6.5 -13.9"
+        scale="1.5 1.5 1.5"
+        rotation="0 0 0"
+        src="#clock"
+        repeat = ""
+        material="src: #clock; color: #FFFFFF"
+      ></a-plane>
+      
+      <!-- Controller -->
  
+      <a-plane
+        position="6 3 -11.6"
+        scale="3 3 3"
+        rotation="0 -10 0"
+        src="#controlls"
+        repeat = ""
+        material="src: #controlls; color: #FFFFFF"
+      ></a-plane>
 
       <!-- Sky -->
       <a-sky color="white"></a-sky>
 
       <!-- Ground + Walls -->
       <a-plane
-        position="0 -1 -4"
-        rotation="-90 0 0"
-        width="26"
-        height="26"
-        color="#414006"
-      ></a-plane>
+  position="0 -1 -4"
+  rotation="-90 0 0"
+  scale="26 26 1"
+  src="#floor"
+  repeat = "5 5"
+  material="src: #floor; color: #FFFFFF"
+></a-plane>
+
     
     <!--ceiling -->
     
-    <a-plane
+     <a-plane
         position="0 8 -4"
         rotation="90 0 0"
-        width="26"
-        height="26"
-        color="#B4BCB0"
+        scale="26 26 1"
+        src="#ceiling"
+        repeat = "5 5"
+        material="src: #ceiling; color: #FFFFFF"
       ></a-plane>
     
         <!--Wall left -->
@@ -171,7 +207,9 @@
         rotation="0 90 0"
         width="26"
         height="26"
-        color="#B4BCB0"
+        src="#wall"
+  repeat = "5 5"
+  material="src: #wall; color: #FFFFFF"
       ></a-plane>
     
        <!--Wall right -->
@@ -181,7 +219,9 @@
         rotation="0 -90 0"
         width="26"
         height="26"
-        color="#B4BCB0"
+        src="#wall"
+  repeat = "5 5"
+  material="src: #wall; color: #FFFFFF"
       ></a-plane>
     
     <!--Wall front -->
@@ -191,55 +231,206 @@
         rotation="0 0 0"
         width="30"
         height="30"
-        color="#B4BCB0"
+        src="#wall"
+  repeat = "5 5"
+  material="src: #wall; color: #FFFFFF"
       ></a-plane>
     
     <!--Wall back-->
 
     <a-plane
-        position="0 9 11"
+        position="0 9 9"
         rotation="0 180 0"
         width="30"
         height="30"
-        color="#B4BCB0"
+        src="#wall"
+  repeat = "5 5"
+  material="src: #wall; color: #FFFFFF"
       ></a-plane>
       
       
        <!-- Lights -->
       
       <a-box
-  id="Light1l"
-  color= "yellow"
+  id="Light1f"
+  color= "white"
   scale="2 0.12 0.12"
   position="-2 7 -3"
   rotation="0 180 0"
     ></a-box>
       
       <a-box
-  id="Light2l"
-  color= "yellow"
+  id="Light2f"
+  color= "white"
   scale="2 0.12 0.12"
   position="2 7 -3"
   rotation="0 180 0"
     ></a-box>
+      
+      <a-box
+  id="Light1h"
+  color= "white"
+  scale="2 0.12 0.12"
+  position="-2 7 2"
+  rotation="0 180 0"
+    ></a-box>
+      
+      <a-box
+  id="Light2h"
+  color= "white"
+  scale="2 0.12 0.12"
+  position="2 7 2"
+  rotation="0 180 0"
+    ></a-box>
+      
+      
+             <!-- Tables -->
 
+      
+    <a-entity 
+        id ="tablefrontright"
+        gltf-model="#table" 
+        position="4 -1.5 -7" 
+        scale="0.15 0.15 0.15">
+    </a-entity>
+      
+      
+      <a-entity 
+        id ="tablefrontleft"
+        gltf-model="#table" 
+        position="-4 -1.5 -7" 
+        scale="0.15 0.15 0.15">
+    </a-entity>
+      
+      
+      <a-entity 
+        id ="tablebackright"
+        gltf-model="#table" 
+        position="4 -1.5 3" 
+        scale="0.15 0.15 0.15">
+    </a-entity>
+      
+      <a-entity 
+        id ="tablebackleft"
+        gltf-model="#table" 
+        position="-4 -1.5 3" 
+        scale="0.15 0.15 0.15">
+    </a-entity>
 
+      
+      
+            <!-- Tasks-->
 
+      
+       <a-gui-button
+  id="AufgabentextQuader"
+  width="3"
+  height="5.5"
+  base-depth="0.025"
+  depth="0.05"
+  gap="0.05"
+  position="-8 4 4"
+  rotation="0 90 0"
+  key-code="32"
+  value="Berechnen Sie das das Volumen eines Quaders mit den Abmessungen 7 cm (Länge), 3 cm
+(Breite) und 2 cm (Höhe).
+         
+         Wenn die Abmessungen eines anderen Quaders 9 cm, 4 cm und 1 cm betragen, wie groß ist
+sein Volumen?
+         
+         Berechnen Sie die Oberfläche eines Quaders mit den Abmessungen 5 cm (Länge),
+4 cm (Breite) und 3 cm(Höhe).
+         
+Wenn Sie die Länge und Breite eines Quaders verdoppeln, wie verändert sich sein Volumen?."
+  font-family="Arial, sans-serif"
+  font-size="0.2"
+  font-color="black"
+  background-color="white"
+  border-color="black"
+  bevel="false">
+</a-gui-button>
+      
+         <a-gui-button
+  id="AufgabentextWürfel"
+  width="3"
+  height="5.5"
+  base-depth="0.025"
+  depth="0.05"
+  gap="0.05"
+  position="8 4 4"
+  rotation="0 -90 0"
+  key-code="32"
+  value="1. Berechnen Sie das Volumen eines Würfels mit einer Kantenlänge von 1.5 m.
+         
+         2. Wenn die Kantenlänge eines Würfels 2.5 m beträgt, wie groß ist sein Volumen?
+         
+         3. Berechnen Sie die Oberfläche eines Würfels mit einer Kantenlänge von 0.5 m.
+         
+         4. Wie groß ist die Oberfläche eines Würfels mit einer Kantenlänge von 2 m?"
+         
+  font-family="Arial, sans-serif"
+  font-size="0.2"
+  font-color="black"
+  background-color="white"
+  border-color="black"
+  bevel="false">
+</a-gui-button>
+      
+          <!-- Traffic Light -->
+
+      
+ <a-gui-button
+ id="trafficquader" 
+ width="2" 
+ height="2" 
+ base-depth="0.025" 
+ depth="0.1" 
+ gap="0.1" 
+ position="-8 5.5 1"
+ rotation="0 90 0"  
+ key-code="32" 
+ value="" 
+ font-family="Arial, sans-serif" 
+ font-size="0.2" 
+ font-color="black" 
+ border-color="black"   
+ background-color="white" 
+ bevel="false">
+</a-gui-button>
+
+      
+      <a-gui-button
+ id="trafficcube" 
+ width="2" 
+ height="2" 
+ base-depth="0.025" 
+ depth="0.1" 
+ gap="0.1" 
+ position="8 3.5 0.5"
+ rotation="0 -90 0"  
+ key-code="32" 
+ value="" 
+ font-family="Arial, sans-serif" 
+ font-size="0.2" 
+ font-color="black" 
+ border-color="black"   
+ background-color="white" 
+ bevel="false">
+</a-gui-button>
+        
+     
       <!-- Shapes -->
       <!-- grabbable Box -->
       <a-box
       id="Würfel"
              
         box-properties
-        hoverable=""
         grabbable=""
         stretchable=""
-        draggable=""
-        droppable=""
         color="#935D69"
-        position="8 1.4 -3"
+        position="7 1.4 -3"
         rotation="0 -90 0"
-        scale="2 2 2"
+        scale="1 1 1"
       ></a-box>
     
     
@@ -251,7 +442,7 @@
  base-depth="0.025" 
  depth="0.1" 
  gap="0.1" 
- position="8 6 -8" 
+ position="8 5 -3" 
  rotation="0 -90 0"  
  key-code="32" 
  value="" 
@@ -270,7 +461,7 @@
  base-depth="0.025" 
  depth="0.1" 
  gap="0.1" 
- position="8 5 -8" 
+ position="8 4 -3" 
  rotation="0 -90 0"  
  key-code="32" 
  value="" 
@@ -290,7 +481,7 @@
  base-depth="0.025" 
  depth="0.1" 
  gap="0.1" 
- position="8 4 -8" 
+ position="8 3 -3" 
  rotation="0 -90 0" 
  key-code="32" 
  value="" 
@@ -322,8 +513,6 @@
   bevel="false">
 </a-gui-button>
 
-  
-      
 
     
 <a-box 
@@ -338,7 +527,7 @@
  class="grabbable"
  color="#295FA8" 
  position="-8 1.4 -3" 
- scale="4 2 2">
+ scale="3 2 1">
 </a-box>
     
 <a-gui-button id="volumeQuader"
@@ -347,7 +536,7 @@
  base-depth="0.025" 
  depth="0.1" 
  gap="0.1" 
- position="-8 6 -8" 
+ position="-8 6 -3" 
  rotation="0 90 0" 
  key-code="32" value="" 
  font-family="Arial, sans-serif" 
@@ -366,7 +555,7 @@
  base-depth="0.025" 
  depth="0.1" 
  gap="0.1" 
- position="-8 5 -8" 
+ position="-8 5 -3" 
  rotation="0 90 0" 
  key-code="32" 
  value="" 
@@ -386,7 +575,7 @@
  base-depth="0.025" 
  depth="0.1" 
  gap="0.1" 
- position="-8 4 -8" 
+ position="-8 4 -3" 
  rotation="0 90 0" 
  key-code="32"
  value="" 
@@ -435,20 +624,13 @@ gap="0.05"
 position="0 3 -12"
 rotation="0 0 0"
 value="
-       Diese Umgebung ist dazu da, um mathematisch geometrische Figuren
-       besser kennen zu lernen. 
+       Diese Umgebung ist dazu da, um mathematisch
+       geometrische Figuren
+       besser kennen zu lernen.
        
-       Hier einmal eine Anleitung/Legende:
-       bei den ebenen Figuren, wird die Fläche als A und der Umfang
-       als U gekennzeichnet.
-       
-       Und bei den Körpern wird es wie folgt aussehen: 
-       Volumen = V
-       Oberfläche = O
-       Grundfläche = G
-       Mantelfläche = M"
+       Viel Spaß und Erfolg!"
 font-family="Arial, sans-serif"
-font-size="0.2"
+font-size="0.3"
 font-color="white"
 background-color="#006400"
                    border-color= "grey"
@@ -469,11 +651,11 @@ gap="0.05"
 position="-6 3 -11.7"
 rotation="0 10 0"
 value=" 
-       Und bei den Körpern wird es wie folgt aussehen: 
+       Legende: 
        Volumen = V
        Oberfläche = O
-       Grundfläche = G
-       Mantelfläche = M"
+       Kante = a oder b oder c
+       "
 font-family="Arial, sans-serif"
 font-size="0.2"
 font-color="white"
@@ -493,7 +675,7 @@ depth="0.05"
 gap="0.05"
 position="6 3 -11.7"
 rotation="0 -10 0"
-value="Viel Spaß und Erfolg!"
+value=""
        
 font-family="Arial, sans-serif"
 font-size="0.2"
@@ -512,78 +694,117 @@ border-color= "grey"
  // Komponente für die Berechnung und Anzeige der Eigenschaften des Würfels und Quaders
 AFRAME.registerComponent('box-properties', {
   init: function () {
+    // Verweis auf den GUI
+    this.guiButton = document.querySelector('#trafficcube');
+    
     // Referenzen zu den Text-Elementen auf dem Interface für den Würfel
     this.volumeText = document.querySelector('#volumeText');
     this.surfaceAreaText = document.querySelector('#surfaceAreaText');
     this.dimensionsText = document.querySelector('#dimensionsText');
-
   
     // Initialisieren Sie das vorherige Volumen auf null
     this.previousVolume = null;
   },
 
   tick: function () {
-    // Holen Sie sich die aktuellen Maße der Entität (Würfel oder Quader)
+    // Holt sich die aktuellen Maße der Entität (Würfel oder Quader)
     var scale = this.el.object3D.scale;
 
-    // Berechnen Sie das Volumen für die Entität (Würfel oder Quader)
+    // Berechnet das Volumen für die Entität (Würfel oder Quader)
     var volume = scale.x * scale.y * scale.z;
 
-    // Berechnen Sie die Oberfläche für den Würfel
+    // Berechnet die Oberfläche für den Würfel
     var surfaceAreaCube = 6 * (scale.x * scale.x);
 
-
-    // Überprüfen Sie, ob sich das Volumen geändert hat
+    // Überprüfung ob sich das Volumen geändert hat
     if (volume !== this.previousVolume) {
       // Aktualisieren Sie die Text-Elemente auf dem Interface für den Würfel
       this.volumeText.setAttribute('value', 'Volumen Würfel: ' + volume.toFixed(2));
       this.surfaceAreaText.setAttribute('value', 'Oberfläche Würfel: ' + surfaceAreaCube.toFixed(2));
-      this.dimensionsText.setAttribute('value', 'Maße Würfel: ' + scale.x.toFixed(2) + ' x ' + scale.y.toFixed(2) + ' x ' + scale.z.toFixed(2));
+      this.dimensionsText.setAttribute('value', 'Kantenlängen Würfel: ' + scale.x.toFixed(2) + ' x ' + scale.y.toFixed(2) + ' x ' + scale.z.toFixed(2));
+      
+      // Überprüfung ob das Volumen im gewünschten Bereich liegt
+      if (((volume >= 3.1 && volume <= 3.38) || (volume >= 3.40 && volume <= 3.6)) || ((volume >= 14 && volume <= 15.55) || (volume >= 15.57 && volume <= 17))){        // Ändern Sie die Farbe des Verkehrslichts auf Gelb und ändern Sie die Nachricht
+        this.guiButton.setAttribute('background-color', 'yellow');
+        this.guiButton.setAttribute('value', 'Nah dran, fast geschafft!');
+      } else if (volume === 1) {
+        // Ändert die Farbe des Verkehrslichts auf Weiß und ändert  die Nachricht
+        this.guiButton.setAttribute('background-color', 'white');
+        this.guiButton.setAttribute('value', 'Viel Erfolg!');
+      } else if (volume === 3.375 || volume === 15.625 || volume === 1.49 || volume === 24) {
+        // Ändertdie Farbe des Verkehrslichts auf Grün und ändert die Nachricht
+        this.guiButton.setAttribute('background-color', 'green');
+        this.guiButton.setAttribute('value', 'Glückwunsch, das ist richtig!');
+      } else {
+        // Ändertdie Farbe des Verkehrslichts auf Rot und ändert die Nachricht
+        this.guiButton.setAttribute('background-color', 'red');
+        this.guiButton.setAttribute('value', 'Probiere es weiter :)');
+      }   
 
-
-      // Aktualisieren Sie das vorherige Volumen
+      // Aktualisiert das vorherige Volumen
       this.previousVolume = volume;
     }
   }
 });
+
   
   AFRAME.registerComponent('box-properties2', {
   init: function () {
     
+     // Referenz zum Verkehrslicht
+    this.trafficLight = document.querySelector('#trafficquader');
 
     // Referenzen zu den Text-Elementen auf dem Interface für den Quader
     this.volumeQuader = document.querySelector('#volumeQuader');
     this.surfaceQuader = document.querySelector('#surfaceQuader');
     this.dimensionsQuader = document.querySelector('#dimensionsQuader');
 
-    // Initialisieren Sie das vorherige Volumen auf null
+    // Initialisiert das vorherige Volumen auf null
     this.previousVolume = null;
   },
 
   tick: function () {
-    // Holen Sie sich die aktuellen Maße der Entität (Würfel oder Quader)
+    //  aktuellen Maße der Entität (Würfel oder Quader)
     var scale = this.el.object3D.scale;
 
-    // Berechnen Sie das Volumen für die Entität (Würfel oder Quader)
+    // Berechnet das Volumen für die Entität (Würfel oder Quader)
     var volume = scale.x * scale.y * scale.z;
 
 
-    // Berechnen Sie die Oberfläche für den Quader
+    // Berechnet die Oberfläche für den Quader
     var surfaceAreaQuader = 2 * (scale.x * scale.y + scale.x * scale.z + scale.y * scale.z);
 
-    // Überprüfen Sie, ob sich das Volumen geändert hat
+    // Überprüfung, ob sich das Volumen geändert hat
     if (volume !== this.previousVolume) {
 
-      // Aktualisieren Sie die Text-Elemente auf dem Interface für den Quader
+      // Aktualisiert die Text-Elemente auf dem Interface für den Quader
       this.volumeQuader.setAttribute('value', 'Volumen Quader: ' + volume.toFixed(2));
       this.surfaceQuader.setAttribute('value', 'Oberfläche Quader: ' + surfaceAreaQuader.toFixed(2));
       this.dimensionsQuader.setAttribute('value', 'Maße Quader: ' + scale.x.toFixed(2) + ' x ' + scale.y.toFixed(2) + ' x ' + scale.z.toFixed(2));
-
-      // Aktualisieren Sie das vorherige Volumen
+  
+     // Überprüfung, ob das Volumen 16 ist
+      if (volume === 16) {
+        // Ändert die Farbe des Verkehrslichts auf Weiß und ändert die Nachricht
+        this.trafficLight.setAttribute('background-color', 'white');
+        this.trafficLight.setAttribute('value', 'Viel Erfolg!');
+      } else if (volume >= 7 && volume <= 15) { // Anpassung des Bereichs von 7 bis 15
+        // Ändert die Farbe des Verkehrslichts auf Grün und ändert die Nachricht
+        this.trafficLight.setAttribute('background-color', 'green');
+        this.trafficLight.setAttribute('value', 'Glückwunsch, das ist richtig!');
+      } else {
+        // Ändert die Farbe des Verkehrslichts auf Rot und ändert die Nachricht
+        this.trafficLight.setAttribute('background-color', 'red');
+        this.trafficLight.setAttribute('value', 'Probiere es weiter :)');
+      }               
+      
+      // Aktualisiert das vorherige Volumen
       this.previousVolume = volume;
     }
   }
 });
+  
+
+
 
   </script>
         </a-scene> 
